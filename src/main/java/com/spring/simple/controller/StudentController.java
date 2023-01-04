@@ -1,5 +1,7 @@
 package com.spring.simple.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +45,19 @@ public class StudentController {//  /student/getData
      	
      	
      }
+    @GetMapping("/getCity/{city}")
+   public ResponseEntity<List<Student>> getAllStudentByCity(@PathVariable ("city") String studentCity){
+    	List<Student> student=studentService.getAllStudentByCity(studentCity);
+    	 return ResponseEntity.ok().body(student);
+   }
+    @GetMapping("/list")
+    public List<String> getList(){
+    	List<String> list=new ArrayList<>();
+    	list.add("1");
+    	list.add("2");
+    	list.add("3");
+    	list.add("4");
+    	return list;
+    }
 	
 }

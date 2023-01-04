@@ -1,5 +1,6 @@
 package com.spring.simple.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,12 @@ public class StudentServiceImpl implements StudentService{
 	@Override
 	public void deleteById(Integer id) {
 		studentRepo.deleteById(id);
+		
+	}
+
+	@Override
+	public List<Student> getAllStudentByCity(String city) {
+		return studentRepo.getAllStudentByCity(city);
 		
 	}
 
